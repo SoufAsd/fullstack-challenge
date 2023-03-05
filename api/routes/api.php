@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WeatherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return response()->json([
-        'users' => \App\Models\User::all(),
-    ]);
-});
+Route::get('/weather', [WeatherController::class, 'index']);
+Route::get('/weather/{id}', [WeatherController::class, 'getWeatherHistory']);
